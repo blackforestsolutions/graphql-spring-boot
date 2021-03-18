@@ -128,7 +128,8 @@ graphql.playground:
           query: classpath:exampleQuery.graphql
           headers:
             SomeHeader: Some value
-          variables: classpath:variables.json
+          variables: 
+            SomeVariable: Some variable
           responses:
             - classpath:exampleResponse1.json
             - classpath:exampleResponse2.json
