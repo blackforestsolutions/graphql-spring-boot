@@ -32,8 +32,6 @@ class PlaygroundSettingsTest {
   void shouldProperlyLoadSettings() throws Exception {
 
     final ArrayNode tabs = objectMapper.createArrayNode();
-    final ObjectNode variables = objectMapper.createObjectNode();
-    variables.put("test", "Test Value");
     final ArrayNode tabResponses = objectMapper.createArrayNode();
     tabResponses.add("{\"response\":\"data\"}");
     final ObjectNode tabHeaders = objectMapper.createObjectNode();
@@ -42,7 +40,7 @@ class PlaygroundSettingsTest {
     tab.put("endpoint", "/tab-endpoint");
     tab.put("query", "query {}");
     tab.put("name", "Test Tab");
-    tab.set("variables", variables);
+    tab.put("variables", "{\"test\":\"Test Value\"}");
     tab.set("responses", tabResponses);
     tab.set("headers", tabHeaders);
     tabs.add(tab);
