@@ -1,4 +1,0 @@
-type Query {
-    illegalArgumentException: Boolean
-    illegalStateException: Boolean
-}

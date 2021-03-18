@@ -1,3 +1,0 @@
-subscription ($param: String!){
-    subscriptionWithParameter(param: $param)
-}
