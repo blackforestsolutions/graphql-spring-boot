@@ -40,7 +40,7 @@ class PlaygroundSettingsTest {
     tab.put("endpoint", "/tab-endpoint");
     tab.put("query", "query {}");
     tab.put("name", "Test Tab");
-    tab.put("variables", "{\"test\":\"Test Value\"}");
+    tab.put("variables", "{\r\n  \"test\" : \"Test Value\"\r\n}");
     tab.set("responses", tabResponses);
     tab.set("headers", tabHeaders);
     tabs.add(tab);

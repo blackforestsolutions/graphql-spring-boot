@@ -15,7 +15,7 @@ public class VariablesSerializer extends JsonSerializer<Map<String, Object>> {
     @Override
     public void serialize(Map<String, Object> map, JsonGenerator gen, SerializerProvider serializers) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        String json = mapper.writeValueAsString(map);
+        String json = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(map);
         gen.writeString(json);
     }
 }
