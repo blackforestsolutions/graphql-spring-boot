@@ -30,8 +30,7 @@ public class PlaygroundTab {
     /**
      * The query variables. It should be a JSON resource.
      */
-    @JsonSerialize(using = ResourceSerializer.class)
-    private Resource variables;
+    private Map<String, String> variables;
 
     /**
      * The list of responses to be displayed under "responses". It should be a list of JSON resources.
