@@ -2,6 +2,7 @@ package graphql.kickstart.playground.boot.properties;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import graphql.kickstart.playground.boot.ResourceSerializer;
+import graphql.kickstart.playground.boot.VariablesSerializer;
 import lombok.Data;
 import org.springframework.core.io.Resource;
 
@@ -30,8 +31,8 @@ public class PlaygroundTab {
     /**
      * The query variables. It should be a JSON resource.
      */
-    @JsonSerialize(using = ResourceSerializer.class)
-    private Resource variables;
+    @JsonSerialize(using = VariablesSerializer.class)
+    private Map<String, Object> variables;
 
     /**
      * The list of responses to be displayed under "responses". It should be a list of JSON resources.

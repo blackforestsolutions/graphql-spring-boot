@@ -22,6 +22,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @TestPropertySource("classpath:application-playground-settings-test.properties")
 class PlaygroundSettingsTest {
 
+  private static final String OS_SYSTEM = "os.name";
+
   @Autowired
   private MockMvc mockMvc;
 
@@ -40,7 +42,11 @@ class PlaygroundSettingsTest {
     tab.put("endpoint", "/tab-endpoint");
     tab.put("query", "query {}");
     tab.put("name", "Test Tab");
-    tab.put("variables", "{\"test\":\"Test Value\"}");
+    if (System.getProperty(OS_SYSTEM).toLowerCase().contains("win")) {
+        tab.put("variables", "{\r\n  \"test\" : \"Test Value\"\r\n}");
+    } else {
+        tab.put("variables", "{\n  \"test\" : \"Test Value\"\n}");
+    }
     tab.set("responses", tabResponses);
     tab.set("headers", tabHeaders);
     tabs.add(tab);
