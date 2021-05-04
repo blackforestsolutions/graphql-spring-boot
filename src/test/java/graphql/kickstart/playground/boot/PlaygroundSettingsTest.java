@@ -33,7 +33,7 @@ class PlaygroundSettingsTest {
   @Test
   void shouldProperlyLoadSettings() throws Exception {
 
-    final ArrayNode tabs = objectMapper.createArrayNode();
+    final ObjectNode tabs = objectMapper.createObjectNode();
     final ArrayNode tabResponses = objectMapper.createArrayNode();
     tabResponses.add("{\"response\":\"data\"}");
     final ObjectNode tabHeaders = objectMapper.createObjectNode();
@@ -49,7 +49,7 @@ class PlaygroundSettingsTest {
     }
     tab.set("responses", tabResponses);
     tab.set("headers", tabHeaders);
-    tabs.add(tab);
+    tabs.set("tab", tab);
     final ObjectNode settings = objectMapper.createObjectNode();
     settings.put("editor.cursorShape", "underline");
     settings.put("editor.fontFamily", "monospace");
