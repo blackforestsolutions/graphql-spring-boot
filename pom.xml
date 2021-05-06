@@ -6,7 +6,7 @@
 
     <groupId>de.blackforestsolutions</groupId>
     <artifactId>playground-spring-boot</artifactId>
-    <version>11.0.0</version>
+    <version>12.0.1</version>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

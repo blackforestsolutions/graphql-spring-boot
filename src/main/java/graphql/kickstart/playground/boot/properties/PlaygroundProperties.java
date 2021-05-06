@@ -2,12 +2,13 @@ package graphql.kickstart.playground.boot.properties;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import graphql.kickstart.playground.boot.TabsSerializer;
 import lombok.Data;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 
 import javax.validation.constraints.NotBlank;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 @Data
@@ -37,5 +38,6 @@ public class PlaygroundProperties {
     private Map<String, String> headers = Collections.emptyMap();
 
     @NestedConfigurationProperty
-    private List<PlaygroundTab> tabs = Collections.emptyList();
+    @JsonSerialize(using = TabsSerializer.class)
+    private Map<String, PlaygroundTab> tabs = Collections.emptyMap();
 }
